@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <% for @item in @todos %>
+    <li class="list-group-item"><%= @item.description %></li>
+  <% end %>
+</ul>
+<form class="form-inline">
+  <div class="form-group">
+    <input type="text" placeholder="Description" class="form-control" id="desc-box" />
+    <button class="btn btn-success" id="add">Add</button>
+  </div>
+</form>
