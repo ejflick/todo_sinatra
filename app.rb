@@ -32,7 +32,9 @@ class TodoApp < Sinatra::Base
     Todo.create(data).to_json
   end
   
-  post '/api/v1/todo' do
+  post '/api/v1/todo/:id' do |id|
+    data = JSON.parse request.body.read
+    (Todo[id.to_i]&.update(data) || {}).to_json
   end
   
   delete '/api/v1/todo/:id' do |id|
